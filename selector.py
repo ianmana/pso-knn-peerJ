@@ -101,7 +101,7 @@ def selector(algo,func_details,popSize,Iter,completeData):
     acc_test = float(accuracy_score(testOutput, target_pred_test))
     x.testAcc=acc_test
     
-        print('Test set accuracy: %.2f %%' % (acc * 100))  #edit 24/4/25 dibuang #
+    print('Test set accuracy: %.2f %%' % (acc * 100))  #edit 24/4/25 dibuang # dan diratakan dengan x.test (identation dibuang)
 
     x.testTP=testClassification_results[1]  #edit 24/4/25 dibuang #
     x.testFN=testClassification_results[2]  #edit 24/4/25 dibuang #
