@@ -14,12 +14,12 @@ import fitnessFUNs
 
 # Select optimizers
 PSO= True
-MVO= True
-GWO = True
-MFO= True
-WOA= True
-FFA=True
-BAT=True
+MVO= False #True
+GWO = False #True
+MFO= False #True
+WOA= False #True
+FFA=False #True
+BAT=False #True
 
 
 
