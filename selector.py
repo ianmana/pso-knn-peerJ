@@ -43,11 +43,11 @@ def selector(algo,func_details,popSize,Iter,completeData):
     trainInput, testInput, trainOutput, testOutput = train_test_split(dataInput, dataTarget, test_size=DatasetSplitRatio, random_state=1) 
 #
    
-#    numRowsTrain=numpy.shape(trainInput)[0]    # number of instances in the train dataset
-#    numFeaturesTrain=numpy.shape(trainInput)[1]-1 #number of features in the train dataset
-#
-#    numRowsTest=numpy.shape(testInput)[0]    # number of instances in the test dataset
-#    numFeaturesTest=numpy.shape(testInput)[1]-1 #number of features in the test dataset
+    numRowsTrain=numpy.shape(trainInput)[0]    # number of instances in the train dataset #edit 24/4/25 dibuang #
+    numFeaturesTrain=numpy.shape(trainInput)[1]-1 #number of features in the train dataset #edit 24/4/25 dibuang #
+
+    numRowsTest=numpy.shape(testInput)[0]    # number of instances in the test dataset #edit 24/4/25 dibuang #
+    numFeaturesTest=numpy.shape(testInput)[1]-1 #number of features in the test dataset #edit 24/4/25 dibuang #
 # 
 
     dim=numFeaturesData
@@ -68,21 +68,21 @@ def selector(algo,func_details,popSize,Iter,completeData):
         x=bat.BAT(getattr(fitnessFUNs, function_name),lb,ub,dim,popSize,Iter,trainInput,trainOutput)
 
     # Evaluate MLP classification model based on the training set
-#    trainClassification_results=evalNet.evaluateNetClassifier(x,trainInput,trainOutput,net)
- #   x.trainAcc=trainClassification_results[0]
-  #  x.trainTP=trainClassification_results[1]
-   # x.trainFN=trainClassification_results[2]
-    #x.trainFP=trainClassification_results[3]
-    #x.trainTN=trainClassification_results[4]
+    trainClassification_results=evalNet.evaluateNetClassifier(x,trainInput,trainOutput,net)   #edit 24/4/25 dibuang #
+    x.trainAcc=trainClassification_results[0]   #edit 24/4/25 dibuang #
+    x.trainTP=trainClassification_results[1]   #edit 24/4/25 dibuang #
+    x.trainFN=trainClassification_results[2]   #edit 24/4/25 dibuang #
+    x.trainFP=trainClassification_results[3]   #edit 24/4/25 dibuang #
+    x.trainTN=trainClassification_results[4]   #edit 24/4/25 dibuang #
    
     # Evaluate MLP classification model based on the testing set   
-    #testClassification_results=evalNet.evaluateNetClassifier(x,testInput,testOutput,net)
+    testClassification_results=evalNet.evaluateNetClassifier(x,testInput,testOutput,net)  #edit 24/4/25 dibuang #
             
     reducedfeatures=[]
     for index in range(0,dim):
         if (x.bestIndividual[index]==1):
             reducedfeatures.append(index)
-            print("Selected Feature Indexes:", reducedfeatures)  #edit 24/4/25
+            print("Selected Feature Indexes:", reducedfeatures)  #edit 24/4/25 ditambahkan print()
     
     reduced_data_train_global=trainInput[:,reducedfeatures]
     reduced_data_test_global=testInput[:,reducedfeatures]
@@ -101,12 +101,12 @@ def selector(algo,func_details,popSize,Iter,completeData):
     acc_test = float(accuracy_score(testOutput, target_pred_test))
     x.testAcc=acc_test
     
-        #print('Test set accuracy: %.2f %%' % (acc * 100))
+        print('Test set accuracy: %.2f %%' % (acc * 100))  #edit 24/4/25 dibuang #
 
-    #x.testTP=testClassification_results[1]
-    #x.testFN=testClassification_results[2]
-    #x.testFP=testClassification_results[3]
-    #x.testTN=testClassification_results[4] 
+    x.testTP=testClassification_results[1]  #edit 24/4/25 dibuang #
+    x.testFN=testClassification_results[2]  #edit 24/4/25 dibuang #
+    x.testFP=testClassification_results[3]  #edit 24/4/25 dibuang #
+    x.testTN=testClassification_results[4]  #edit 24/4/25 dibuang #
     
     
     return x
