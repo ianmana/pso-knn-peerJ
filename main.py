@@ -25,7 +25,7 @@ BAT=False #True
 
 
 optimizer=[PSO, MVO, GWO, MFO, WOA,FFA,BAT]
-datasets=["ionosphere","Breastcancer","iris"]
+datasets=["ionosphere","Breastcancer","iris", "bio_dataI"]
 benchmarkfunc=[Fs1,Fs2,Fs3,Fs4,Fs5,Fs6,Fs7,Fs8,Fs9,Fs10]   #edit 24/4/25 dibuang # 
         
 # Select number of repetitions for each experiment. 
