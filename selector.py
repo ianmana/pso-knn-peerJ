@@ -82,8 +82,8 @@ def selector(algo,func_details,popSize,Iter,completeData):
     for index in range(0,dim):
         if (x.bestIndividual[index]==1):
             reducedfeatures.append(index)
-            
-    print("Selected Feature Indexes:", reducedfeatures)  #edit 24/4/25
+            print("Selected Feature Indexes:", reducedfeatures)  #edit 24/4/25
+    
     reduced_data_train_global=trainInput[:,reducedfeatures]
     reduced_data_test_global=testInput[:,reducedfeatures]
                
